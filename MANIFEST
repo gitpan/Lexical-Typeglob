@@ -1,0 +1,8 @@
+Typeglob.pm
+Changes
+MANIFEST
+Makefile.PL
+README
+Typeglob.xs
+LICENSE
+test.pl
