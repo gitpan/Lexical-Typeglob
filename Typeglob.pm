@@ -7,8 +7,9 @@ require Exporter;
 require DynaLoader;
 
 our @ISA = qw(Exporter DynaLoader);
-our @EXPORT_OK = ( 'lexglob' );
-our $VERSION = '0.01';
+our @EXPORT_OK = ( 'lexglob',
+		   'lexioglob' );
+our $VERSION = '0.02';
 
 bootstrap Lexical::Typeglob $VERSION;
 
@@ -21,12 +22,15 @@ Lexical::Typeglob - Like Symbol except without globals
 
 =head1 SYNOPSIS
 
-  use Lexical::Typeglob 'lexglob';
+  use Lexical::Typeglob qw(lexglob lexioglob);
 
   my $glob = lexglob();
   open $glob, 'filename';
   $_ = $glob;
   # etc.
+
+  # replace *FOO{IO} handle but not $FOO, %FOO, etc.
+  *FOO = lexioglob();
 
 =head1 DESCRIPTION
 
@@ -34,6 +38,10 @@ C<Lexical::Typeglob::lexglob> creates an anonymous glob and returns a
 reference to it. Such a glob reference can be used as a file or directory
 handle. This differs from C<Symbol::gensym> only in that the glob has no
 symbol table component and the glob generation is four times as fast.
+
+C<Lexical::Typeglob::lexioglob> creates an anonymous IO handle. This can be
+assigned into an existing glob without affecting the non-IO portions of the
+glob.
 
 =head1 AUTHOR
 

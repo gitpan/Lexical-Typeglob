@@ -2,16 +2,19 @@
 # `make test'. After `make install' it should work as `perl test.pl'
 
 use Test;
-BEGIN { plan tests => 2 };
-use Lexical::Typeglob 'lexglob';
-
+BEGIN { plan tests => 7 };
+use Lexical::Typeglob qw(lexglob lexioglob);
 # First test lexglob()
 $sym1 = lexglob;
 ok( ref($sym1) eq 'GLOB' );
+ok( UNIVERSAL::isa($sym1, 'GLOB') );
+ok( *{$sym1}{PACKAGE} eq '' );
+ok( *{$sym1}{NAME} eq '' );
 
 $sym2 = lexglob;
 
-ok( $sym1 ne $sym2 );
+ok( $sym1 != $sym2 );
 
-$sym1 = $sym2 = undef;
-
+$iosym = lexioglob;
+ok( *{$iosym}{IO} );
+ok( UNIVERSAL::isa(*{$iosym}{IO}, 'IO') );

@@ -3,4 +3,7 @@ Revision history for Perl extension Lexical::Typeglob.
 0.01  Sat May 10 01:41:18 2003
 	- original version; created by h2xs 1.5 with options
 		-c -n Lexical::Typeglob
-
+0.02  Mon May 19
+        - Each lexglob() has its own stash, name is set to "".
+          This keeps *{lexglob()}{PACKAGE} from attempting to deref NULL.
+          Also, *{lexglob()}{NAME} used to return undef, now it returns "".
