@@ -1,15 +1,15 @@
 package Lexical::Typeglob;
 
 use strict;
-use warnings;
 
 require Exporter;
 require DynaLoader;
+use vars qw(@ISA @EXPORT_OK $VERSION);
 
-our @ISA = qw(Exporter DynaLoader);
-our @EXPORT_OK = ( 'lexglob',
+@ISA = qw(Exporter DynaLoader);
+@EXPORT_OK = ( 'lexglob',
 		   'lexioglob' );
-our $VERSION = '0.02';
+$VERSION = '0.03';
 
 bootstrap Lexical::Typeglob $VERSION;
 

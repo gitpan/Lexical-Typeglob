@@ -7,3 +7,8 @@ Revision history for Perl extension Lexical::Typeglob.
         - Each lexglob() has its own stash, name is set to "".
           This keeps *{lexglob()}{PACKAGE} from attempting to deref NULL.
           Also, *{lexglob()}{NAME} used to return undef, now it returns "".
+0.03  Wed Aug 06
+        - Become compatible with 5.005_03 syntax
+        - GvFILE is now conditional
+        - Add SIGNATURE
+        - Add MANIFEST.SKIP

@@ -28,7 +28,10 @@ lexglob()
     HvNAME(stash) = "";
     GvNAME(gv) = "";
     GvNAMELEN(gv) = 0;
+#ifdef GvFILE
+    /* Added after 5.005_03 */
     GvFILE(gv) = "Lexical::Typeglob";
+#endif
     GvLINE(gv) = 0;
 
     return gv;

@@ -1,0 +1,6 @@
+^Makefile$
+^Makefile.old$
+.*CVS.*
+MANIFEST.SKIP
+~$
+^blib$

@@ -1,8 +1,10 @@
-Typeglob.pm
 Changes
 MANIFEST
+MANIFEST.SKIP
 Makefile.PL
 README
+SIGNATURE
+Typeglob.pm
 Typeglob.xs
 LICENSE
 test.pl

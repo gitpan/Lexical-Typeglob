@@ -17,4 +17,4 @@ ok( $sym1 != $sym2 );
 
 $iosym = lexioglob;
 ok( *{$iosym}{IO} );
-ok( UNIVERSAL::isa(*{$iosym}{IO}, 'IO') );
+ok( UNIVERSAL::isa(*{$iosym}{IO}, $] < 5.006 ? "FileHandle" : "IO" ) );
